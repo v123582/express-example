@@ -16,14 +16,18 @@ let taskController = {
         res.render('show', {"task": task});
       });
   },
+  create: function (req, res) {
+    res.render('create');
+  },
   store: function (req, res) {
     Task.create({
-        title: req.title, 
+        title: req.body.title, 
         createdAt : new Date(),
         updatedAt : new Date(),
       })
       .then(function (task) {
-        res.json(task);
+        // res.json(task);
+        res.redirect('/tasks');
       });
   },
   update: function (req, res) {
