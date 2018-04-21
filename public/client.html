@@ -1,0 +1,19 @@
+<h2>所有資料</h2>
+
+<ul id="ul">
+    
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: "get",
+        url: 'http://localhost:3000/tasks-api',
+        success: function(response){
+            var data = response;
+            for (i = 0; i < data.length; i++) { 
+              $('#ul').append("<a href='/task/"+data[i].id+"'><li>"+data[i].title+"</li></a>");
+            }
+        }
+    });
+</script>

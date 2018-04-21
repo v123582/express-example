@@ -9,6 +9,20 @@ let taskController = {
         res.render('index', {"tasks": tasks});
       });
   },
+  client: function (req, res) {
+    Task.findAll()
+      .then(function (tasks) {
+        // res.json(tasks);
+        res.render('client', {"tasks": JSON.stringify(tasks)});
+      });
+  },
+  api: function (req, res) {
+    Task.findAll()
+      .then(function (tasks) {
+        // res.json(tasks);
+        res.json(tasks);
+      });
+  },
   show: function (req, res) {
     Task.findById(req.params.id)
       .then(function (task) {

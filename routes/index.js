@@ -8,5 +8,7 @@ module.exports = function (app) {
   app.post('/task', taskController.store);
   app.put('/task/:id', taskController.update);
   app.delete('/task/:id', taskController.destroy);
-
+  app.get('/tasks-client', taskController.client);
+  app.get('/tasks-api', taskController.api);
+  
 };
